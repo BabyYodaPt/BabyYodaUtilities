@@ -35,4 +35,4 @@ async def wanted(ctx, user: discord.Member = None):
     
 
 
-client.run('Nzg5NDk0MTM0NjU4MTcwODgx.X9y3tQ.g7eyfvx_USIVoljud3xz5QcNYeA')
+client.run('token')
