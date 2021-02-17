@@ -8,6 +8,9 @@ from io import BytesIO
 
 client = commands.Bot(command_prefix = "b/")
 
+for filename in os.listdir('./comandos/fun'):
+    if filename.endswith('.py'):
+        client.load_extension(f'comandos.fun.{filename[:-3]}')
 
 @client.command()
 async def ping(ctx):
