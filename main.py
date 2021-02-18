@@ -18,17 +18,28 @@ async def verdade(ctx):
 
 @client.command()
 async def moeda(ctx):
-  list = ['cara', 'coroa']
-  res = random.choice(list)
-  await ctx.channel.send('A moeda girou e o resultado foi ' + res)
+    list = ['Cara', 'Coroa']
+    res = random.choice(list)
+    await ctx.channel.send('A moeda girou e o resultado foi **' + res + '**')
 
 @client.command()
 async def ping(ctx):
-    await ctx.reply(f'🏓Pong! A Lantecia da API é{round(client.latency * 1000)}ms')
+    await ctx.reply(f'🏓Pong! A Lantecia da API é {round(client.latency * 1000)}ms')
+    await ctx.message.add_reaction('🏓')
 
 @client.command()
 async def gay(ctx):
-    ctx.send("comando em reforma")
+    numero_random = randint(1, 100)
+    embed = discord.Embed(
+    title="ctx.author é {}%".format(numero_random),
+    colour=discord.Colour(0x3b12ef),
+    )
+    embed.set_image(
+    url="https://i.imgur.com/uHGTsON.gif"
+  )
+    await ctx.send(
+    embed=embed,
+)
 
 
 @client.command()
@@ -52,4 +63,4 @@ async def wanted(ctx, user: discord.Member = None):
 
     
     
-client.run('Nzg5NDk0MTM0NjU4MTcwODgx.X9y3tQ.ImBRcxEF9YIZao4Gou3LvVZ8z1c')
+client.run('Nzg5NDk0MTM0NjU4MTcwODgx.X9y3tQ.O94rYP4rlAbi2cWLI-gnSjK4XFk')
