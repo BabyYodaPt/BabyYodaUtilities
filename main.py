@@ -51,5 +51,5 @@ async def wanted(ctx, user: discord.Member = None):
     await ctx.send(file = discord.File("wanted.jpg"))
 
     
-
-client.run('')
+    
+client.run('Nzg5NDk0MTM0NjU4MTcwODgx.X9y3tQ.ImBRcxEF9YIZao4Gou3LvVZ8z1c')
