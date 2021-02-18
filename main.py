@@ -36,7 +36,7 @@ async def wanted(ctx, user: discord.Member = None):
     if user == None:
         user = ctx.author
     
-    wanted = Image.open("wantedtemp.jpg")
+    wanted = Image.open("./img/wantedtemp.jpg")
 
     asset = user.avatar_url_as(size = 128)
     data = BytesIO(await asset.read())
@@ -52,4 +52,4 @@ async def wanted(ctx, user: discord.Member = None):
 
     
 
-client.run('Nzg5NDk0MTM0NjU4MTcwODgx.X9y3tQ.IhIoGXwPSBuH3Cj2mdcjz0YVlW8')
+client.run('')
