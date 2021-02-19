@@ -4,7 +4,7 @@ import asyncio
 import random
 
 
-from PIL import Image
+from PIL import Image,ImageFont,ImageDraw
 from io import BytesIO
 from random import randint
 
@@ -12,9 +12,9 @@ client = commands.Bot(command_prefix = "b/")
 
 @client.command()
 async def verdade(ctx):
-  lista = ['verdadeiro', 'mentira']
+  lista = ['verdadeiro✅', 'mentira❌']
   resp = random.choice(lista)
-  await ctx.reply(f'O que voce disse é ' + resp)
+  await ctx.reply(f'O que voce disse é **' + resp + '**')
 
 @client.command()
 async def moeda(ctx):
@@ -24,24 +24,40 @@ async def moeda(ctx):
 
 @client.command()
 async def ping(ctx):
-    await ctx.reply(f'🏓Pong! A Lantecia da API é {round(client.latency * 1000)}ms')
     await ctx.message.add_reaction('🏓')
+    await ctx.reply(f'🏓Pong! A Lantecia da API é **{round(client.latency * 1000)}ms**')
+
 
 @client.command()
 async def gay(ctx):
+    mention = {ctx.author.metion}
     numero_random = randint(1, 100)
     embed = discord.Embed(
-    title="ctx.author é {}%".format(numero_random),
-    colour=discord.Colour(0x3b12ef),
+    title="🏳️‍🌈Gay Test",
+    description='🌈 ' + mention + ' é **{}%** gay'.format(numero_random),
+    colour=discord.Colour(0x008EFF),
     )
     embed.set_image(
     url="https://i.imgur.com/uHGTsON.gif"
-  )
-    await ctx.send(
+    )
+    await ctx.reply(
     embed=embed,
 )
 
+@client.command()
+async def faustão(ctx, *, text = "No text enterd"):
 
+    img = Image.open("./img/faustaotemp.jpg")
+    
+    draw = ImageDraw.Draw(img)
+    font = ImageFont.truetype("arial.ttf", 60)
+    
+    draw.text((200,0), text, (0,0,0), font=font)
+    
+    img.save("faustão.jpg")
+
+    await ctx.send(file = discord.File("faustão.jpg"))
+    
 @client.command()
 async def wanted(ctx, user: discord.Member = None):
     if user == None:
@@ -63,4 +79,4 @@ async def wanted(ctx, user: discord.Member = None):
 
     
     
-client.run('token')
+client.run('Nzg5NDk0MTM0NjU4MTcwODgx.X9y3tQ.Fj3Mh70wr06bzCOEf0NBwuda388')
